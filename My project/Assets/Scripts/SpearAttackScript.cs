@@ -45,7 +45,7 @@ public class SpearAttackScript : MonoBehaviour
         {
             closestEnemy = null;
         }
-        if (closestEnemy && Time.time > lastTimeShot)
+        if (closestEnemy && Time.time > lastTimeShot * player.GetComponent<PlayerController>().attackRate)
         {
             lastTimeShot = Time.time + timeBetweenShots;
             Shoot();

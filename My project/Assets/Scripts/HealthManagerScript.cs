@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class HealthManagerScript : MonoBehaviour
 {
-    public float maxHealth = 10;
     public float currentHealth;
+    public float maxHealth;
     public bool immortal;
+    public bool poisoned;
+    private float poisonRate;
+    private float lastTimePoisoned;
+    private float poisonDamage;
     public GameObject Loot;
+    public ParticleSystem poison;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +22,24 @@ public class HealthManagerScript : MonoBehaviour
 
     private void Update()
     {
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        if (poisoned)
+        {
+            poison.gameObject.SetActive(true);
+            TakePoisonDamage();
+        }
+    }
+
+    private void TakePoisonDamage()
+    {
+        if (Time.time > lastTimePoisoned)
+        {
+            lastTimePoisoned = Time.time + poisonRate;
+            TakeDamage(poisonDamage);
+        }
     }
 
     // Update is called once per frame
@@ -31,6 +53,13 @@ public class HealthManagerScript : MonoBehaviour
             Die();
         }
 
+    }
+
+    public void StartPoison(float poisonRate, float poisonDamage)
+    {
+        poisoned = true;
+        this.poisonRate = poisonRate;
+        this.poisonDamage = poisonDamage;
     }
 
     void Die()

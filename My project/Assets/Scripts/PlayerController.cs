@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public float collectDistance;
+    public float strength;
+    public float attackRate;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
     public HealthManagerScript playerHealth;
-    public float collectDistance;
 
     private void Awake()
     {
