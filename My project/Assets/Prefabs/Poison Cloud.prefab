@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisonous: 1
-  damageRate: 2.5
+  damageRate: 1.75
   damageMultiplyer: 1
+  poisonTime: 10
   destroyTime: 5
   radius: 1
   targetLayer:

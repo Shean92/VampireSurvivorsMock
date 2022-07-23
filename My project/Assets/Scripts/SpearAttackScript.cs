@@ -34,10 +34,13 @@ public class SpearAttackScript : MonoBehaviour
 
             foreach (GameObject enemy in enemies)
             {
-                float distanceToNewTarget = Vector2.Distance(transform.position, enemy.transform.position);
-                if (distanceToNewTarget < distanceToTarget)
+                if (enemy.GetComponent<Collider2D>().enabled == true)
                 {
-                    closestEnemy = enemy;
+                    float distanceToNewTarget = Vector2.Distance(transform.position, enemy.transform.position);
+                    if (distanceToNewTarget < distanceToTarget)
+                    {
+                        closestEnemy = enemy;
+                    }
                 }
             }
         }
@@ -45,7 +48,7 @@ public class SpearAttackScript : MonoBehaviour
         {
             closestEnemy = null;
         }
-        if (closestEnemy && Time.time > lastTimeShot * player.GetComponent<PlayerController>().attackRate)
+        if (closestEnemy && Time.time > lastTimeShot)
         {
             lastTimeShot = Time.time + timeBetweenShots;
             Shoot();

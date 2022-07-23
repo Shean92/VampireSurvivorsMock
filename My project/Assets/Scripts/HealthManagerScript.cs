@@ -11,6 +11,7 @@ public class HealthManagerScript : MonoBehaviour
     private float poisonRate;
     private float lastTimePoisoned;
     private float poisonDamage;
+    public float poisonTime;
     public GameObject Loot;
     public ParticleSystem poison;
 
@@ -28,6 +29,12 @@ public class HealthManagerScript : MonoBehaviour
         }
         if (poisoned)
         {
+            if (Time.time > poisonTime)
+            {
+                poisoned = false;
+                poison.gameObject.SetActive(false);
+                return;
+            }
             poison.gameObject.SetActive(true);
             TakePoisonDamage();
         }
@@ -55,16 +62,19 @@ public class HealthManagerScript : MonoBehaviour
 
     }
 
-    public void StartPoison(float poisonRate, float poisonDamage)
+    public void StartPoison(float poisonRate, float poisonDamage, float poisonTime)
     {
         poisoned = true;
         this.poisonRate = poisonRate;
         this.poisonDamage = poisonDamage;
+        this.poisonTime = poisonTime;
     }
 
     void Die()
     {
         Instantiate(Loot, gameObject.transform.position, gameObject.transform.rotation);
-        gameObject.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(gameObject, .2f);
     }
 }

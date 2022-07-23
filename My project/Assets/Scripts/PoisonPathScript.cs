@@ -16,7 +16,7 @@ public class PoisonPathScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > lastTimeShot * player.GetComponent<PlayerController>().attackRate)
+        if (Time.time > lastTimeShot)
         {
             lastTimeShot = Time.time + timeBetweenShots;
             Instantiate(poison, player.transform.position, player.transform.rotation);

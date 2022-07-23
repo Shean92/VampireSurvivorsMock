@@ -8,6 +8,7 @@ public class AreaOfAffectScript : MonoBehaviour
     public float damageRate;
     public float damageMultiplyer;
     private float lastTimeDamaged;
+    public float poisonTime;
     public float destroyTime;
     public float radius = 5f;
     public LayerMask targetLayer;
@@ -29,7 +30,7 @@ public class AreaOfAffectScript : MonoBehaviour
             if (poisonous)
             {
                 Debug.Log("poison");
-                enemy.GetComponent<HealthManagerScript>().StartPoison(damageRate, damageMultiplyer);
+                enemy.GetComponent<HealthManagerScript>().StartPoison(damageRate, damageMultiplyer, poisonTime + Time.time);
             }
             else if (Time.time > lastTimeDamaged)
             {

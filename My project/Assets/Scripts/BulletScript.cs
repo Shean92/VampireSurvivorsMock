@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float speed;
-    public float damageMultiplyer;
+    public float Damage;
     public float destroyTime;
     public bool heatSeeking = false;
     public LayerMask friendlies;
@@ -28,7 +28,7 @@ public class BulletScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<HealthManagerScript>() && other.gameObject.layer != friendlies.value)
         {
-            other.gameObject.GetComponent<HealthManagerScript>().TakeDamage(damageMultiplyer * GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().strength);
+            other.gameObject.GetComponent<HealthManagerScript>().TakeDamage(Damage);
             bloodSplatter.Emit(100);
         }
         gameObject.SetActive(false);

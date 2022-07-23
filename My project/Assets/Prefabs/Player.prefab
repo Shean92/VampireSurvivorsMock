@@ -149,11 +149,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  maxHealth: 5
   immortal: 1
   poisoned: 0
+  poisonTime: 0
   Loot: {fileID: 555417418874371271, guid: 19e007413f483434ea45351eb196b9de, type: 3}
-  parent: {fileID: 0}
-  poison: {fileID: 0}
+  poison: {fileID: 7540897011406629772}
 --- !u!114 &5885190383362078419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,9 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   collectDistance: 3
-  strength: 1
-  attackRate: 1
-  maxHealth: 3
   rb: {fileID: 4509944108249737414}
   playerHealth: {fileID: 7296214219045869811}
 --- !u!114 &1416926627
@@ -267,5 +265,10 @@ PrefabInstance:
 --- !u!4 &631524389550438346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8226850233870629718, guid: 0080bdd0372ecd546b3132f47fef5c53, type: 3}
+  m_PrefabInstance: {fileID: 8856333774612630684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7540897011406629772 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1319169062024439568, guid: 0080bdd0372ecd546b3132f47fef5c53, type: 3}
   m_PrefabInstance: {fileID: 8856333774612630684}
   m_PrefabAsset: {fileID: 0}
