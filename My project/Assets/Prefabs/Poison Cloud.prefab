@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisonous: 1
-  damageRate: 1.75
+  damageRate: 2
   damageMultiplyer: 1
   poisonTime: 10
   destroyTime: 5

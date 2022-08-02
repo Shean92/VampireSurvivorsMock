@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  Damage: 1
+  Damage: 1.5
   destroyTime: 3
   heatSeeking: 0
   friendlies:

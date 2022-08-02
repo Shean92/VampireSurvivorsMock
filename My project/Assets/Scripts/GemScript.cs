@@ -5,6 +5,7 @@ using UnityEngine;
 public class GemScript : MonoBehaviour
 {
     private GameObject player;
+    private GameObject game;
     public Rigidbody2D rb;
     public int value;
     public float speed;
@@ -13,6 +14,7 @@ public class GemScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        game = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class GemScript : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            game.GetComponent<GameManagerScript>().GainGems(value);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<Collider2D>().enabled = false;
             Destroy(gameObject, destroyTime);

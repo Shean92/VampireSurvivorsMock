@@ -26,7 +26,6 @@ public class AreaOfAffectScript : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
         foreach (Collider2D enemy in enemies)
         {
-            Debug.Log(enemy);
             if (poisonous)
             {
                 Debug.Log("poison");
